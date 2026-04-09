@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Itech Global | IT Consulting & EDI Solutions</title>
-  <meta name="description" content="Itech Global delivers modern IT consulting, EDI integration, cloud migration, and product engineering." />
+  <title>Itech Global | IT Consulting & EDI Integration</title>
+  <meta name="description" content="Professional IT consulting, EDI integration, cloud modernization, and product engineering for growth-focused businesses." />
+  <link rel="icon" href="assets/itech-mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f5f1ea;
-      --bg-alt: #fef7ee;
-      --ink: #1b1a17;
-      --muted: #5c5349;
-      --accent: #e4582a;
-      --accent-2: #2b3a67;
+      --ink: #121827;
+      --muted: #5b6476;
+      --accent: #ea6c3c;
+      --accent-2: #1f3d6d;
+      --bg: #f4f1ec;
+      --bg-2: #fff6ee;
       --card: #ffffff;
-      --line: #e5d9cd;
-      --shadow: 0 24px 60px rgba(27, 26, 23, 0.12);
+      --line: #e4dcd2;
+      --shadow: 0 30px 70px rgba(18, 24, 39, 0.12);
     }
 
     * {
@@ -29,8 +30,13 @@
       margin: 0;
       font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
       color: var(--ink);
-      background: radial-gradient(circle at 20% 20%, #fff2e4 0%, var(--bg) 40%, #eef2ff 100%);
+      background: radial-gradient(circle at 15% 20%, #fff1e5 0%, var(--bg) 45%, #eef2ff 100%);
       line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     a {
@@ -46,43 +52,36 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(245, 241, 234, 0.85);
+      z-index: 30;
+      background: rgba(244, 241, 236, 0.88);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(229, 217, 205, 0.7);
+      border-bottom: 1px solid rgba(228, 220, 210, 0.7);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
       padding: 18px 0;
-      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-family: 'Sora', sans-serif;
-      font-size: 20px;
-      letter-spacing: 0.6px;
     }
 
-    .brand-badge {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: linear-gradient(140deg, var(--accent), #ff8a4d);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-weight: 700;
+    .brand img {
+      height: 38px;
+      width: auto;
     }
 
     nav {
       display: flex;
-      gap: 18px;
+      align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
@@ -91,32 +90,32 @@
       font-size: 14px;
       font-weight: 600;
       color: var(--muted);
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 999px;
       transition: all 0.25s ease;
     }
 
     nav a:hover {
+      background: rgba(31, 61, 109, 0.1);
       color: var(--accent-2);
-      background: rgba(43, 58, 103, 0.08);
     }
 
     .hero {
-      padding: 90px 0 60px;
+      padding: 90px 0 70px;
     }
 
     .hero-grid {
       display: grid;
-      gap: 40px;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
       align-items: center;
     }
 
     .hero h1 {
-      font-family: 'Sora', sans-serif;
-      font-size: clamp(34px, 4.6vw, 58px);
+      font-family: 'Fraunces', serif;
+      font-size: clamp(34px, 4.8vw, 62px);
       line-height: 1.05;
-      margin: 0 0 20px;
+      margin-bottom: 18px;
     }
 
     .hero p {
@@ -132,25 +131,25 @@
     }
 
     .btn {
-      border: none;
-      cursor: pointer;
       padding: 14px 22px;
       border-radius: 12px;
       font-weight: 700;
       font-size: 15px;
+      border: none;
+      cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 10px 20px rgba(228, 88, 42, 0.25);
+      box-shadow: 0 14px 28px rgba(234, 108, 60, 0.28);
     }
 
     .btn-secondary {
       background: #fff;
-      color: var(--accent-2);
       border: 1px solid var(--line);
+      color: var(--accent-2);
     }
 
     .btn:hover {
@@ -160,7 +159,7 @@
     .hero-card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 24px;
+      border-radius: 26px;
       padding: 28px;
       box-shadow: var(--shadow);
       position: relative;
@@ -171,31 +170,31 @@
       content: '';
       position: absolute;
       inset: -40% -30% auto auto;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(228, 88, 42, 0.2), transparent 70%);
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(234, 108, 60, 0.18), transparent 70%);
       border-radius: 50%;
-      animation: float 10s ease-in-out infinite alternate;
+      animation: float 9s ease-in-out infinite alternate;
     }
 
-    .hero-metric {
+    .stat-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
       margin-top: 20px;
     }
 
-    .metric {
+    .stat {
       padding: 14px;
       border-radius: 16px;
       border: 1px solid var(--line);
-      background: #fff8f1;
+      background: #fff8f2;
     }
 
-    .metric h3 {
+    .stat h3 {
       margin: 0 0 6px;
       font-size: 22px;
-      font-family: 'Sora', sans-serif;
+      font-family: 'Fraunces', serif;
     }
 
     .section {
@@ -204,9 +203,9 @@
 
     .section-title {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
       margin-bottom: 30px;
     }
@@ -214,19 +213,19 @@
     .section-title h2 {
       margin: 0;
       font-size: clamp(26px, 3vw, 40px);
-      font-family: 'Sora', sans-serif;
+      font-family: 'Fraunces', serif;
     }
 
     .section-title p {
       margin: 0;
-      max-width: 460px;
+      max-width: 480px;
       color: var(--muted);
     }
 
     .card-grid {
       display: grid;
-      gap: 22px;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
     }
 
     .card {
@@ -234,28 +233,43 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 22px;
-      box-shadow: 0 14px 30px rgba(27, 26, 23, 0.08);
-      min-height: 100%;
+      box-shadow: 0 14px 32px rgba(18, 24, 39, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(27, 26, 23, 0.12);
+      box-shadow: 0 20px 40px rgba(18, 24, 39, 0.12);
     }
 
     .card h3 {
       margin-top: 0;
-      font-family: 'Sora', sans-serif;
+      font-family: 'Fraunces', serif;
     }
 
-    .accent-panel {
-      background: linear-gradient(120deg, #fff5ea 0%, #f0f4ff 100%);
-      border-radius: 24px;
+    .pill-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .pill {
+      background: #fff;
       border: 1px solid var(--line);
-      padding: 30px;
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .highlight-panel {
+      background: linear-gradient(120deg, #fff5ea 0%, #f1f5ff 100%);
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      padding: 32px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
     }
 
@@ -274,8 +288,7 @@
 
     .case-shot {
       height: 170px;
-      background: linear-gradient(135deg, #2b3a67, #6d83f2, #ffd1b8);
-      filter: saturate(0.85);
+      background: linear-gradient(135deg, #1f2937, #425aa6, #ffb992);
     }
 
     .case-body {
@@ -337,6 +350,7 @@
 
     .faq-item h4 {
       margin: 0;
+      font-family: 'Fraunces', serif;
     }
 
     .faq-item p {
@@ -375,6 +389,7 @@
       padding: 12px 16px;
       border-radius: 10px;
       font-weight: 700;
+      cursor: pointer;
     }
 
     footer {
@@ -401,8 +416,8 @@
 
     @media (max-width: 760px) {
       nav { justify-content: flex-start; }
-      .contact { padding: 28px; }
       header { position: static; }
+      .contact { padding: 28px; }
     }
   </style>
 </head>
@@ -410,8 +425,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="brand-badge">IG</div>
-        Itech Global
+        <img src="assets/itech-logo.png" alt="Itech Global logo" />
       </div>
       <nav>
         <a href="#home">Home</a>
@@ -429,35 +443,40 @@
     <section id="home" class="hero">
       <div class="container hero-grid">
         <div>
-          <h1>Build digital systems that scale, connect, and perform.</h1>
+          <h1>Professional IT consulting that connects systems and drives growth.</h1>
           <p>
-            Itech Global partners with mid-market and enterprise teams to deliver EDI integration,
-            cloud modernization, and product engineering with measurable outcomes.
+            Itech Global delivers EDI integration, cloud modernization, and product engineering for
+            organizations that need stability, speed, and measurable ROI.
           </p>
           <div class="hero-actions">
             <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Start a Project</button>
-            <button class="btn btn-secondary" onclick="document.getElementById('cases').scrollIntoView({behavior: 'smooth'})">See Client Wins</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('cases').scrollIntoView({behavior: 'smooth'})">View Client Results</button>
+          </div>
+          <div class="pill-row">
+            <span class="pill">ISO-ready delivery</span>
+            <span class="pill">EDI mapping experts</span>
+            <span class="pill">24/7 monitoring</span>
           </div>
         </div>
         <div class="hero-card">
           <h3>Engagement snapshot</h3>
-          <p>Multi-sprint delivery with full-stack accountability from strategy to release.</p>
-          <div class="hero-metric">
-            <div class="metric">
+          <p>Senior specialists managing discovery, integration, and go-live with clear milestones.</p>
+          <div class="stat-grid">
+            <div class="stat">
               <h3>4-10 wks</h3>
               <span>Typical launch window</span>
             </div>
-            <div class="metric">
+            <div class="stat">
               <h3>30%+</h3>
               <span>Ops cost reduction</span>
             </div>
-            <div class="metric">
-              <h3>24/7</h3>
-              <span>Monitoring coverage</span>
-            </div>
-            <div class="metric">
+            <div class="stat">
               <h3>99.9%</h3>
               <span>Uptime target</span>
+            </div>
+            <div class="stat">
+              <h3>50+</h3>
+              <span>Successful deployments</span>
             </div>
           </div>
         </div>
@@ -468,42 +487,42 @@
       <div class="container">
         <div class="section-title">
           <h2>Services built for scale</h2>
-          <p>From complex integrations to cloud migration, we assemble the right delivery team for the mission.</p>
+          <p>We align strategy, engineering, and operations to keep your systems connected and future-ready.</p>
         </div>
         <div class="card-grid">
           <article class="card reveal">
             <h3>EDI Integration</h3>
-            <p>Secure, automated pipelines for vendors, retailers, and logistics partners with real-time visibility.</p>
+            <p>Secure onboarding, transaction monitoring, and automated partner compliance.</p>
           </article>
           <article class="card reveal">
             <h3>Cloud & DevOps</h3>
-            <p>Migrate legacy workloads, implement CI/CD, and harden infrastructure for continuous delivery.</p>
+            <p>Migration, CI/CD pipelines, and cost optimization for high-availability systems.</p>
           </article>
           <article class="card reveal">
             <h3>Product Engineering</h3>
-            <p>Design and build digital platforms with modern UX, analytics, and scalable architecture.</p>
+            <p>Design, build, and ship digital products with analytics and growth tooling.</p>
           </article>
           <article class="card reveal">
             <h3>IT Consulting</h3>
-            <p>Strategic roadmaps, audits, and security hardening to align technology with business goals.</p>
+            <p>Roadmaps, audits, and governance aligned to your business KPIs.</p>
           </article>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container accent-panel">
+      <div class="container highlight-panel">
         <div>
-          <h3>What clients feel</h3>
-          <p>Confidence through proactive updates, quick turnarounds, and transparent delivery.</p>
+          <h3>Leadership visibility</h3>
+          <p>Weekly executive summaries with risks, progress, and next actions.</p>
         </div>
         <div>
-          <h3>What leaders see</h3>
-          <p>Operational resilience, connected data flows, and faster decision cycles.</p>
+          <h3>Operational certainty</h3>
+          <p>SLAs, monitoring, and escalation plans built into every engagement.</p>
         </div>
         <div>
-          <h3>What teams get</h3>
-          <p>Playbooks, documentation, and support for long-term sustainability.</p>
+          <h3>Scalable delivery</h3>
+          <p>Reusable playbooks and integration frameworks to accelerate timelines.</p>
         </div>
       </div>
     </section>
@@ -512,28 +531,28 @@
       <div class="container">
         <div class="section-title">
           <h2>Selected outcomes</h2>
-          <p>Clear wins for supply chain, finance, and SaaS organizations.</p>
+          <p>Examples of measurable impact across supply chain, SaaS, and finance.</p>
         </div>
         <div class="case-grid">
           <article class="case reveal">
             <div class="case-shot"></div>
             <div class="case-body">
               <h3>Retail EDI acceleration</h3>
-              <p>Reduced partner onboarding time by 60% with reusable mapping templates.</p>
+              <p>Reduced onboarding time by 60% using reusable trading-partner templates.</p>
             </div>
           </article>
           <article class="case reveal">
             <div class="case-shot" style="background: linear-gradient(135deg, #ffbfa3, #f2d27b, #7aa4ff);"></div>
             <div class="case-body">
               <h3>Cloud cost optimization</h3>
-              <p>Cut monthly spend by 28% while improving app performance.</p>
+              <p>Cut monthly infrastructure spend by 28% while improving performance.</p>
             </div>
           </article>
           <article class="case reveal">
             <div class="case-shot" style="background: linear-gradient(135deg, #1f2937, #334155, #f97316);"></div>
             <div class="case-body">
               <h3>Product engineering sprint</h3>
-              <p>Launched MVP in 6 weeks with analytics and customer feedback loops.</p>
+              <p>Launched a new platform in 6 weeks with analytics and growth tooling.</p>
             </div>
           </article>
         </div>
@@ -544,13 +563,13 @@
       <div class="container">
         <div class="section-title">
           <h2>How we deliver</h2>
-          <p>Structured delivery with measurable milestones and shared ownership.</p>
+          <p>Structured delivery with shared ownership and measurable milestones.</p>
         </div>
         <div class="timeline">
           <div class="step reveal">
             <span>01</span>
             <h3>Discovery</h3>
-            <p>Stakeholder interviews, system audits, and success metrics.</p>
+            <p>Stakeholder interviews, process mapping, and success metrics.</p>
           </div>
           <div class="step reveal">
             <span>02</span>
@@ -565,7 +584,7 @@
           <div class="step reveal">
             <span>04</span>
             <h3>Launch</h3>
-            <p>Cutover planning, training, and ongoing support.</p>
+            <p>Cutover planning, training, and long-term support.</p>
           </div>
         </div>
       </div>
