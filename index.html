@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Itech Global | IT Consulting & EDI Integration</title>
+  <meta name="description" content="Professional IT consulting, EDI integration, cloud modernization, and product engineering for growth-focused businesses." />
+  <link rel="icon" href="assets/itech-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f1e2d;
+      --muted: #4f5d6f;
+      --accent: #1496d4;
+      --accent-2: #0b2a4a;
+      --bg: #f6f8fb;
+      --bg-2: #eef5fb;
+      --card: #ffffff;
+      --line: #d9e1ec;
+      --shadow: 0 24px 50px rgba(15, 30, 45, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 15% 20%, #f2f7fb 0%, var(--bg) 50%, #eef3f9 100%);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92vw);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(246, 248, 251, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(228, 220, 210, 0.7);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      height: 38px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+    }
+
+    nav a:hover {
+      background: rgba(31, 61, 109, 0.1);
+      color: var(--accent-2);
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      font-size: clamp(34px, 4.8vw, 62px);
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(20, 150, 212, 0.28);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--accent-2);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      inset: -40% -30% auto auto;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(20, 150, 212, 0.18), transparent 70%);
+      border-radius: 50%;
+      animation: float 9s ease-in-out infinite alternate;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #f8fbff;
+    }
+
+    .stat h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .trust {
+      padding: 0 0 40px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .trust-row span {
+      border: 1px solid var(--line);
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #fff;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 700;
+    }
+
+    .section-title p {
+      margin: 0;
+      max-width: 480px;
+      color: var(--muted);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 14px 32px rgba(18, 24, 39, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(18, 24, 39, 0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-weight: 700;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .pill {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .highlight-panel {
+      background: linear-gradient(120deg, #f7fbff 0%, #eef4fb 100%);
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .case-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .case {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+
+    .case-shot {
+      height: 170px;
+      background: linear-gradient(135deg, #1f2937, #425aa6, #ffb992);
+    }
+
+    .case-body {
+      padding: 18px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .step {
+      background: #fff;
+      border: 1px dashed var(--accent);
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    .step span {
+      display: inline-block;
+      background: #ffe1d4;
+      color: #8c3415;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .testimonials {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .testimonial {
+      border: 1px solid var(--line);
+      padding: 22px;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-top: 14px;
+      color: var(--accent-2);
+    }
+
+    .faq {
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .faq-item h4 {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .faq-item p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      display: none;
+    }
+
+    .contact {
+      background: var(--accent-2);
+      color: #fff;
+      border-radius: 18px;
+      padding: 40px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .contact form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: none;
+      font-family: inherit;
+    }
+
+    .contact button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 30px 0 50px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      from { transform: translateY(-8px); }
+      to { transform: translateY(18px); }
+    }
+
+    @media (max-width: 760px) {
+      nav { justify-content: flex-start; }
+      header { position: static; }
+      .contact { padding: 28px; }
+    }
+  </style>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Form validation
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      if (!/\S+@\S+\.\S+/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      alert('Thank you for your message! We will get back to you soon.');
+      form.reset();
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.card, .portfolio-item, .testimonial, .team-member').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s, transform 0.6s';
+      observer.observe(el);
+    });
+
+    // Back to top button
+    const backToTop = document.createElement('button');
+    backToTop.textContent = '↑';
+    backToTop.style.position = 'fixed';
+    backToTop.style.bottom = '20px';
+    backToTop.style.right = '20px';
+    backToTop.style.background = '#0a2540';
+    backToTop.style.color = 'white';
+    backToTop.style.border = 'none';
+    backToTop.style.borderRadius = '50%';
+    backToTop.style.width = '50px';
+    backToTop.style.height = '50px';
+    backToTop.style.cursor = 'pointer';
+    backToTop.style.display = 'none';
+    backToTop.style.zIndex = '1000';
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.body.appendChild(backToTop);
+
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    // FAQ toggle function
+    function toggleFAQ(element) {
+      const answer = element.querySelector('p');
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/itech-logo.png" alt="Itech Global logo" />
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#cases">Work</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Professional IT consulting that connects systems and drives growth.</h1>
+          <p>
+            Itech Global delivers EDI integration, cloud modernization, and product engineering for
+            organizations that need stability, speed, and measurable ROI.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Start a Project</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('cases').scrollIntoView({behavior: 'smooth'})">View Client Results</button>
+          </div>
+          <div class="pill-row">
+            <span class="pill">ISO-ready delivery</span>
+            <span class="pill">EDI mapping experts</span>
+            <span class="pill">24/7 monitoring</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Engagement snapshot</h3>
+          <p>Senior specialists managing discovery, integration, and go-live with clear milestones.</p>
+          <div class="stat-grid">
+            <div class="stat">
+              <h3>4-10 wks</h3>
+              <span>Typical launch window</span>
+            </div>
+            <div class="stat">
+              <h3>30%+</h3>
+              <span>Ops cost reduction</span>
+            </div>
+            <div class="stat">
+              <h3>99.9%</h3>
+              <span>Uptime target</span>
+            </div>
+            <div class="stat">
+              <h3>50+</h3>
+              <span>Successful deployments</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="container trust-row">
+        <span>Enterprise integrations</span>
+        <span>EDI compliance</span>
+        <span>Cloud modernization</span>
+        <span>24/7 monitoring</span>
+        <span>Secure delivery</span>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Services built for scale</h2>
+          <p>We align strategy, engineering, and operations to keep your systems connected and future-ready.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card reveal">
+            <h3>EDI Integration</h3>
+            <p>Secure onboarding, transaction monitoring, and automated partner compliance.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Cloud & DevOps</h3>
+            <p>Migration, CI/CD pipelines, and cost optimization for high-availability systems.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Product Engineering</h3>
+            <p>Design, build, and ship digital products with analytics and growth tooling.</p>
+          </article>
+          <article class="card reveal">
+            <h3>IT Consulting</h3>
+            <p>Roadmaps, audits, and governance aligned to your business KPIs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container highlight-panel">
+        <div>
+          <h3>Leadership visibility</h3>
+          <p>Weekly executive summaries with risks, progress, and next actions.</p>
+        </div>
+        <div>
+          <h3>Operational certainty</h3>
+          <p>SLAs, monitoring, and escalation plans built into every engagement.</p>
+        </div>
+        <div>
+          <h3>Scalable delivery</h3>
+          <p>Reusable playbooks and integration frameworks to accelerate timelines.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Selected outcomes</h2>
+          <p>Examples of measurable impact across supply chain, SaaS, and finance.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case reveal">
+            <div class="case-shot"></div>
+            <div class="case-body">
+              <h3>Retail EDI acceleration</h3>
+              <p>Reduced onboarding time by 60% using reusable trading-partner templates.</p>
+            </div>
+          </article>
+          <article class="case reveal">
+            <div class="case-shot" style="background: linear-gradient(135deg, #ffbfa3, #f2d27b, #7aa4ff);"></div>
+            <div class="case-body">
+              <h3>Cloud cost optimization</h3>
+              <p>Cut monthly infrastructure spend by 28% while improving performance.</p>
+            </div>
+          </article>
+          <article class="case reveal">
+            <div class="case-shot" style="background: linear-gradient(135deg, #1f2937, #334155, #f97316);"></div>
+            <div class="case-body">
+              <h3>Product engineering sprint</h3>
+              <p>Launched a new platform in 6 weeks with analytics and growth tooling.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>How we deliver</h2>
+          <p>Structured delivery with shared ownership and measurable milestones.</p>
+        </div>
+        <div class="timeline">
+          <div class="step reveal">
+            <span>01</span>
+            <h3>Discovery</h3>
+            <p>Stakeholder interviews, process mapping, and success metrics.</p>
+          </div>
+          <div class="step reveal">
+            <span>02</span>
+            <h3>Blueprint</h3>
+            <p>Architecture, integration maps, and implementation plan.</p>
+          </div>
+          <div class="step reveal">
+            <span>03</span>
+            <h3>Build</h3>
+            <p>Agile delivery with weekly demos and continuous testing.</p>
+          </div>
+          <div class="step reveal">
+            <span>04</span>
+            <h3>Launch</h3>
+            <p>Cutover planning, training, and long-term support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="about" class="section">
+  <h2>About Itech Global</h2>
+  <p>Itech Global is a leading IT consulting and services company dedicated to delivering innovative technology solutions that drive business growth. With years of experience in web development, EDI integration, cloud solutions, and strategic consulting, we partner with clients worldwide to transform their operations and achieve digital excellence.</p>
+  <p>Our team of experts combines deep technical knowledge with business acumen to provide tailored solutions that meet the unique needs of each client. We are committed to excellence, innovation, and building long-term partnerships.</p>
+</section>
+
+<section id="commitment" class="section">
+  <h2>Our Commitment to Client Satisfaction</h2>
+  <p>At Itech Global, client satisfaction is at the heart of everything we do. We believe in delivering exceptional value through:</p>
+  <ul style="list-style: none; text-align: left; max-width: 800px; margin: 0 auto; padding: 0;">
+    <li style="margin-bottom: 15px;"><strong>Personalized Approach:</strong> Every project is tailored to your specific needs and goals.</li>
+    <li style="margin-bottom: 15px;"><strong>Transparent Communication:</strong> Regular updates and open dialogue throughout the project lifecycle.</li>
+    <li style="margin-bottom: 15px;"><strong>Quality Assurance:</strong> Rigorous testing and quality checks to ensure flawless delivery.</li>
+    <li style="margin-bottom: 15px;"><strong>Ongoing Support:</strong> Post-delivery support and maintenance to keep your systems running smoothly.</li>
+    <li style="margin-bottom: 15px;"><strong>Proven Results:</strong> Track record of successful projects and satisfied clients.</li>
+  </ul>
+  <p style="margin-top: 30px;">We guarantee 100% satisfaction or your money back within 30 days of project completion.</p>
+</section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Questions we hear often</h2>
+          <p>Clear answers so you can move fast with confidence.</p>
+        </div>
+        <div class="faq">
+          <div class="faq-item">
+            <h4>How long does a typical engagement take?</h4>
+            <p>Most projects launch in 4 to 10 weeks depending on integration depth and approvals.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Can you work with our existing vendors?</h4>
+            <p>Yes. We integrate with ERP, WMS, and trading partners using proven mapping frameworks.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Do you offer post-launch support?</h4>
+            <p>We provide ongoing monitoring, SLAs, and enhancement sprints.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact">
+        <div>
+          <h2>Let us design your next release</h2>
+          <p>Email: info@itechglobal.in</p>
+          <p>Phone: +91 90000 00000</p>
+          <p>Address: Hyderabad, Telangana, India</p>
+        </div>
+        <form>
+          <input type="text" id="name" name="name" placeholder="Your name" />
+          <input type="email" id="email" name="email" placeholder="Work email" />
+          <textarea id="message" name="message" rows="4" placeholder="Tell us about your goals"></textarea>
+          <button type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+<footer>
+  <p>© 2026 Itech Global. All Rights Reserved.</p>
+</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', event => {
+          event.preventDefault();
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const para = item.querySelector('p');
+          if (!para) return;
+          const isOpen = para.style.display === 'block';
+          para.style.display = isOpen ? 'none' : 'block';
+        });
+      });
+
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', event => {
+          event.preventDefault();
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+          if (!name || !email || !message) {
+            alert('Please fill in all fields.');
+            return;
+          }
+          if (!/\S+@\S+\.\S+/.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+          alert('Thanks! We will reply shortly.');
+          form.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
+
