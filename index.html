@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<P>this is a new page</P>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itech Global - IT & Consulting Services</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+    header { background: #0a2540; color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; justify-content: center; gap: 20px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+    nav a:hover { color: #1e90ff; }
+    .hero { background: linear-gradient(to right, #0a2540, #1e90ff); color: white; padding: 100px 20px; text-align: center; }
+    .hero h1 { font-size: 48px; margin-bottom: 20px; }
+    .hero p { font-size: 24px; }
+    .section { padding: 60px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+    .card { padding: 30px; border: 1px solid #ddd; border-radius: 10px; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease; }
+    .card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 16px 30px rgba(0,0,0,0.15); border-color: #1e90ff; background: rgba(30, 144, 255, 0.05); }
+    .card:hover h3 { color: #1e90ff; }
+    .card h3 { color: #0a2540; margin-bottom: 15px; }
+    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
+    .portfolio-item { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .portfolio-item img { width: 100%; height: 200px; object-fit: cover; }
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+    .testimonial { padding: 30px; border: 1px solid #ddd; border-radius: 10px; background: #f9f9f9; }
+    .team { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+    .team-member { text-align: center; }
+    .team-member img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+    .about-section {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: radial-gradient(circle at 15% 20%, #e8f7ff 0%, #ffffff 40%, #eef2ff 100%);
+      border: 1px solid #d7e8ff;
+      box-shadow: 0 18px 45px rgba(15, 60, 120, 0.12);
+      text-align: left;
+      padding: 70px 40px;
+    }
+    .about-section::before,
+    .about-section::after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(2px);
+      animation: aboutOrbDrift 10s ease-in-out infinite alternate;
+    }
+    .about-section::before {
+      width: 180px;
+      height: 180px;
+      background: rgba(30, 144, 255, 0.2);
+      top: -55px;
+      right: 7%;
+    }
+    .about-section::after {
+      width: 130px;
+      height: 130px;
+      background: rgba(10, 37, 64, 0.1);
+      bottom: -35px;
+      left: 3%;
+      animation-delay: 1.5s;
+    }
+    .about-title {
+      font-size: clamp(30px, 4.4vw, 44px);
+      line-height: 1.15;
+      color: #0a2540;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-subtitle {
+      font-size: 18px;
+      color: #24507a;
+      max-width: 760px;
+      margin-bottom: 35px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-story,
+    .about-highlights {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid #cfe2ff;
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .about-story p { margin: 0 0 14px; }
+    .about-story p:last-child { margin-bottom: 0; }
+    .about-highlights h3 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #0a2540;
+    }
+    .about-highlights ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .about-highlights li {
+      margin-bottom: 10px;
+      color: #284e73;
+    }
+    .about-highlights li:last-child { margin-bottom: 0; }
+    .about-reveal {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .about-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    @keyframes aboutOrbDrift {
+      from { transform: translateY(-10px) translateX(0); }
+      to { transform: translateY(16px) translateX(-12px); }
+    }
+    footer { background: #0a2540; color: white; text-align: center; padding: 20px; }
+    @media (max-width: 920px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-section { padding: 50px 24px; }
+    }
+    @media (max-width: 768px) { .hero h1 { font-size: 36px; } .hero p { font-size: 18px; } nav { flex-direction: column; gap: 10px; } }
+  </style>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Form validation
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      if (!/\S+@\S+\.\S+/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      alert('Thank you for your message! We will get back to you soon.');
+      form.reset();
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.card, .portfolio-item, .testimonial, .team-member').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s, transform 0.6s';
+      observer.observe(el);
+    });
+
+    // Back to top button
+    const backToTop = document.createElement('button');
+    backToTop.textContent = '↑';
+    backToTop.style.position = 'fixed';
+    backToTop.style.bottom = '20px';
+    backToTop.style.right = '20px';
+    backToTop.style.background = '#0a2540';
+    backToTop.style.color = 'white';
+    backToTop.style.border = 'none';
+    backToTop.style.borderRadius = '50%';
+    backToTop.style.width = '50px';
+    backToTop.style.height = '50px';
+    backToTop.style.cursor = 'pointer';
+    backToTop.style.display = 'none';
+    backToTop.style.zIndex = '1000';
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.body.appendChild(backToTop);
+
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    // FAQ toggle function
+    function toggleFAQ(element) {
+      const answer = element.querySelector('p');
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <h2>Itech Global</h2>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#team">Team</a>
+    <a href="#about">About</a>
+    <a href="#commitment">Commitment</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Leading IT & Consulting Services</h1>
+  <p>We deliver innovative technology solutions for modern businesses.</p>
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" style="background: white; color: #0a2540; padding: 15px 30px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; margin-top: 20px;">Get Started Today</button>
+</section>
+
+<section id="services" class="section">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Web Development</h3>
+      <p>Modern, scalable, and responsive websites.</p>
+    </div>
+    <div class="card">
+      <h3>EDI Integration</h3>
+      <p>Seamless business communication solutions.</p>
+    </div>
+    <div class="card">
+      <h3>Cloud Solutions</h3>
+      <p>Secure and scalable cloud infrastructure.</p>
+    </div>
+    <div class="card">
+      <h3>IT Consulting</h3>
+      <p>Expert advice to grow your business.</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="section">
+  <h2>Our Portfolio</h2>
+  <div class="portfolio">
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x200?text=Project+1" alt="Project 1">
+      <h3>E-commerce Platform</h3>
+      <p>Built a scalable online store with payment integration.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x200?text=Project+2" alt="Project 2">
+      <h3>Cloud Migration</h3>
+      <p>Migrated legacy systems to AWS for improved performance.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x200?text=Project+3" alt="Project 3">
+      <h3>EDI Solutions</h3>
+      <p>Implemented seamless EDI integration for supply chain.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/300x200?text=Project+4" alt="Project 4">
+      <h3>Consulting Services</h3>
+      <p>Provided strategic IT consulting for digital transformation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="section">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <p>"Itech Global transformed our business with their innovative solutions. Highly recommend!"</p>
+      <cite>- John Doe, CEO of TechCorp</cite>
+    </div>
+    <div class="testimonial">
+      <p>"Professional team and excellent service. Our cloud migration was seamless."</p>
+      <cite>- Jane Smith, CTO of Innovate Ltd</cite>
+    </div>
+    <div class="testimonial">
+      <p>"Outstanding IT consulting that helped us achieve our goals."</p>
+      <cite>- Mike Johnson, Manager at Global Enterprises</cite>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="section">
+  <h2>Meet Our Team</h2>
+  <div class="team">
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150x150?text=CEO" alt="CEO">
+      <h3>Alice Brown</h3>
+      <p>CEO & Founder</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150x150?text=CTO" alt="CTO">
+      <h3>Bob Wilson</h3>
+      <p>CTO</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150x150?text=Lead+Developer" alt="Lead Developer">
+      <h3>Carol Davis</h3>
+      <p>Lead Developer</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150x150?text=Consultant" alt="Consultant">
+      <h3>David Lee</h3>
+      <p>Senior Consultant</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <h2>About Itech Global</h2>
+  <p>Itech Global is a leading IT consulting and services company dedicated to delivering innovative technology solutions that drive business growth. With years of experience in web development, EDI integration, cloud solutions, and strategic consulting, we partner with clients worldwide to transform their operations and achieve digital excellence.</p>
+  <p>Our team of experts combines deep technical knowledge with business acumen to provide tailored solutions that meet the unique needs of each client. We are committed to excellence, innovation, and building long-term partnerships.</p>
+</section>
+
+<section id="commitment" class="section">
+  <h2>Our Commitment to Client Satisfaction</h2>
+  <p>At Itech Global, client satisfaction is at the heart of everything we do. We believe in delivering exceptional value through:</p>
+  <ul style="list-style: none; text-align: left; max-width: 800px; margin: 0 auto; padding: 0;">
+    <li style="margin-bottom: 15px;"><strong>Personalized Approach:</strong> Every project is tailored to your specific needs and goals.</li>
+    <li style="margin-bottom: 15px;"><strong>Transparent Communication:</strong> Regular updates and open dialogue throughout the project lifecycle.</li>
+    <li style="margin-bottom: 15px;"><strong>Quality Assurance:</strong> Rigorous testing and quality checks to ensure flawless delivery.</li>
+    <li style="margin-bottom: 15px;"><strong>Ongoing Support:</strong> Post-delivery support and maintenance to keep your systems running smoothly.</li>
+    <li style="margin-bottom: 15px;"><strong>Proven Results:</strong> Track record of successful projects and satisfied clients.</li>
+  </ul>
+  <p style="margin-top: 30px;">We guarantee 100% satisfaction or your money back within 30 days of project completion.</p>
+</section>
+
+<section id="faq" class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+    <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 20px 0; cursor: pointer;" onclick="toggleFAQ(this)">
+      <h3 style="margin: 0;">How long does a typical project take?</h3>
+      <p style="display: none; margin-top: 10px;">Project timelines vary depending on complexity, but most projects range from 2-12 weeks. We'll provide a detailed timeline during our initial consultation.</p>
+    </div>
+    <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 20px 0; cursor: pointer;" onclick="toggleFAQ(this)">
+      <h3 style="margin: 0;">Do you provide ongoing support after project completion?</h3>
+      <p style="display: none; margin-top: 10px;">Yes, we offer comprehensive post-delivery support and maintenance packages to ensure your systems continue to perform optimally.</p>
+    </div>
+    <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 20px 0; cursor: pointer;" onclick="toggleFAQ(this)">
+      <h3 style="margin: 0;">What industries do you serve?</h3>
+      <p style="display: none; margin-top: 10px;">We serve clients across various industries including healthcare, finance, retail, manufacturing, and more. Our solutions are adaptable to any sector.</p>
+    </div>
+    <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 20px 0; cursor: pointer;" onclick="toggleFAQ(this)">
+      <h3 style="margin: 0;">How do you ensure data security?</h3>
+      <p style="display: none; margin-top: 10px;">We implement industry-standard security protocols, including encryption, secure coding practices, and compliance with regulations like GDPR and HIPAA.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <p>Ready to transform your business? Get in touch with us today.</p>
+  <p>Email: info@itechglobal.com</p>
+  <p>Phone: +1 (555) 123-4567</p>
+  <p>Address: 123 Tech Street, Innovation City, IC 12345</p>
+  <form style="max-width: 600px; margin: 0 auto; text-align: left;">
+    <div style="margin-bottom: 15px;">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+    </div>
+    <div style="margin-bottom: 15px;">
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+    </div>
+    <div style="margin-bottom: 15px;">
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+    </div>
+    <button type="submit" style="background: #0a2540; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Itech Global. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
